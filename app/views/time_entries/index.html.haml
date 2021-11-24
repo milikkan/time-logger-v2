@@ -1,0 +1,25 @@
+%h1 Listing time_entries
+
+%table
+  %thead
+    %tr
+      %th Start
+      %th Stop
+      %th Comment
+      %th
+      %th
+      %th
+
+  %tbody
+    - @time_entries.each do |time_entry|
+      %tr
+        %td= time_entry.start
+        %td= time_entry.stop
+        %td= time_entry.comment
+        %td= link_to 'Show', time_entry
+        %td= link_to 'Edit', edit_time_entry_path(time_entry)
+        %td= link_to 'Destroy', time_entry, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Time entry', new_time_entry_path
